@@ -36,7 +36,7 @@ app.all('/player/login/dashboard', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send("Hello World");
+  res.send("Hello helo");
 });
 
 app.use((req, res) => {
