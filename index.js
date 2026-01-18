@@ -17,18 +17,16 @@ app.post('/player/growid/checktoken', (req, res) => {
 });
 
 app.post('/player/growid/login/validate', (req, res) => {
-  const token = req.body.growId; // ✅ SESUAI INPUT HTML
+  const token = req.body.growId;
 
   console.log('Token diterima:', token);
 
-  res.send({
-    status: "success",
-    message: "Account Validated.",
-    token: token,
-    url: "",
-    accountType: "growtopia",
-    accountAge: 2
-  });
+  res
+    .status(200)
+    .set('Content-Type', 'text/plain; charset=utf-8')
+    .send(
+      `{"status":"success","message":"Account Validated.","token":"${token}","url":"","accountType":"growtopia","accountAge":2}`
+    );
 });
 
 app.all('/player/login/dashboard', (req, res) => {
@@ -36,7 +34,7 @@ app.all('/player/login/dashboard', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.send("Hello helo");
+  res.send("Hello");
 });
 
 app.use((req, res) => {
