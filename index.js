@@ -21,13 +21,10 @@ app.post('/player/growid/login/validate', (req, res) => {
 
   console.log('Token diterima:', token);
 
-res
-  .status(200)
-  .set('Content-Type', 'application/json')
-  .json({
+  res.send({
     status: "success",
     message: "Account Validated.",
-    token,
+    token: token,
     url: "",
     accountType: "growtopia",
     accountAge: 2
